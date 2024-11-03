@@ -1,6 +1,7 @@
 <?php
-session_start();
-    require_once("includes\header.php");
+    session_start();
+    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+    require_once(ROOT_DIR."includes/header.php");
 
     if(isset($_SESSION["error"])){
         $messageErr = $_SESSION["error"];
@@ -8,7 +9,7 @@ session_start();
     }
 
     if(isset($_SESSION["sucess"])){
-        $messageSuc = $_SESSION["sucess"];
+        $messageSucc = $_SESSION["sucess"];
         unset($_SESSION["sucess"]);
     }
 
@@ -30,9 +31,9 @@ session_start();
                     </div>
                     <div class="card-body">
                     <!-- Message Response -->
-                    <?php if (isset($messageSuc)){ ?>
+                    <?php if (isset($messageSucc)){ ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong><?php echo $messageSuc; ?></strong>
+                    <strong><?php echo $messageSucc; ?></strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <?php } ?>
@@ -71,8 +72,5 @@ session_start();
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    
+    <?php require_once(ROOT_DIR."includes/footer.php"); ?>
