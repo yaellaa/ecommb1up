@@ -7,7 +7,8 @@
                         <p class="card-text">Price: <?php echo $product["unit_price"]?></p>
                         <p class="card-text">Stock: <?php echo $product["stocks"]?></p>
                         <p class="card-text">Total Price: <?php echo number_format($product["total_price"],2) ?></p>
-                        <a href="#" class="btn btn-primary">Edit Product</a>
+                        <a href="<?php echo BASE_URL;?>views/admin/products/edit.php?id=<?php echo $product["id"]; ?>"
+                        class= "btn btn-primary">Edit Product</a>
                         
                         <form action="<?php echo BASE_URL;?>app/product/delete_product.php" method="POST" class="d-inline">
                 <input type="hidden" name="id" value="<?php echo $product["id"]; ?>">
