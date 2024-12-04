@@ -5,14 +5,14 @@ if(!isset($_SESSION)){
 }
 
 require_once(__DIR__."/../config/Directories.php");
-include("../config/DatabaseConnection.php");
+include("../config/DatabaseConnect.php");
 
 if(!isset($_SESSION['username'])){
     header("location: ".BASE_URL."login.php");
 
 }
 
-$db = new DatabaseConnection();
+$db = new DatabaseConnect();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -24,8 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $userId    = $_SESSION["user_id"];
     $totalPrice=0;
     
-    if (trim($totalOrder) == "" || empty($totalOrder) || floatval($totalOrder)==0.00) 
-    {
+    if (trim($totalOrder) == "" || empty($totalOrder) || floatval($totalOrder)==0.00) {
         $_SESSION["error"] = "Total Order cannot be zero (0).";
         header("location: ".BASE_URL."cart.php");
         exit();
@@ -48,7 +47,6 @@ try {
             header("location: ".BASE_URL."cart.php");
             exit;
         }
-
         $carts=$stmt->fetchAll();
 
         $conn->beginTransaction();
@@ -65,8 +63,7 @@ try {
                 header("location: ".BASE_URL."cart.php");
                 exit;
             }
-
-
+            
             $sql="UPDATE products SET products.stocks = (products.stocks - :p_quantity) WHERE products.id = :p_product_id AND products.stocks >= :p_quantity";
             $stmt=$conn->prepare($sql);
             $stmt->bindParam(':p_quantity',$cart["quantity"]);
@@ -87,17 +84,19 @@ try {
             }
         }
 
-        $sql="INSERT INTO `orders` (order_date, payment_method, account_no, user_id, total_order, delivery_fee, total_amount, created_at, updated_at) 
-        VALUES (NOW(), :p_payment_method, :p_account_no, :p_user_id, :p_total_order, :p_delivery_fee, :p_total_amount, NOW(), NOW ())";
+        $sql = "INSERT INTO orders (order_date, payment_method, account_no, user_id,
+        total_order, delivery_fee, total_amount, created_at, updated_at) 
+   VALUES (NOW(), :p_payment_method, :p_account_no, :p_user_id,
+        :p_total_order, :p_delivery_fee, :p_total_amount, NOW(), NOW())";
+
         $stmt=$conn->prepare($sql);
         $data=[
-        ':p_payment_method' => $paymentMethod,
-        ':p_account_no'=> $cardNumber,
-        ':p_user_id'=> $userId,
-        ':p_total_order'=> $totalOrder,
-        ':p_delivery_fee'=> $deliveryFee,
-        ':p_total_amount'   => $totalAmount
-        ];
+        ':p_payment_method'     => $paymentMethod,
+        ':p_account_no'         => $cardNumber,
+        ':p_user_id'            => $userId,
+        ':p_total_order'        => $totalOrder,
+        ':p_delivery_fee'       => $deliveryFee,
+        ':p_total_amount'       => $totalAmount];
 
         if (!$stmt->execute($data)) {
             $_SESSION["error"]="Failed to insert record to orders table";
@@ -113,8 +112,8 @@ try {
 
 
     } catch(PDOException $e){
-        $_SESSION["error"] = "Connection Failed: " . $e->getMessage();
-        header("location: ".BASE_URL."views/products/product.php");
+        echo "Connection Failed: " . $e->getMessage();
+        $db = null;
         exit;
     }
 }

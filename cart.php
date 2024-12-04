@@ -18,7 +18,7 @@ try {
     $sql = "SELECT carts.id, products.product_name, carts.quantity, carts.unit_price, carts.total_price "
             . " FROM carts "
             . " LEFT JOIN products ON products.id = carts.product_id" 
-            . " WHERE carts.user_id = $userId AND carts,status = 0";
+            . " WHERE carts.user_id = $userId AND carts.status = 0";
 
     $stmt = $conn ->prepare($sql);
     $stmt -> execute();
@@ -46,6 +46,9 @@ if(isset($_SESSION["success"])){
     <!-- Navbar -->
     <?php require_once("includes\\navbar.php"); ?>
 
+    <!-- Shopping Cart -->
+    <div class="container mt-5">
+
     <?php if (isset($messageSucc)) { ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong><?php echo $messageSucc; ?></strong>
@@ -57,9 +60,7 @@ if(isset($_SESSION["success"])){
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php } ?>
-
-    <!-- Shopping Cart -->
-    <div class="container mt-5">
+        
         <div class="row">
             <!-- Shopping Cart Items -->
             <div class="col-md-8">
