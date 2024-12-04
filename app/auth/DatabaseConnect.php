@@ -3,9 +3,9 @@
 class DatabaseConnect {
 
     private $host = "localhost";
-    private $database = "ecommb1"; 
-    private $dbusername = "root";
-    private $dbpassword = "";
+    private $database = "ecommerce_melisan";
+    private $dbusername = "melisan";
+    private $dbpassword = "M37!san_2024";
     private $conn = null;
 
     // Method to connect to the database
