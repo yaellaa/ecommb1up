@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', "http://ecommb1up.test/"); 
+define('BASE_URL', "https://melisan.futurewebbuilders.design/");
 define('ROOT_DIR', $_SERVER["DOCUMENT_ROOT"]."/");
 
 ?>

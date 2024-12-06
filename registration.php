@@ -2,7 +2,7 @@
 
     session_start();
     require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
-    require_once(ROOT_DIR."includes\header.php");
+    require_once(ROOT_DIR."includes/header.php");
 
     if(isset($_SESSION["error"])){
         $messageErr = $_SESSION["error"];
@@ -16,7 +16,7 @@
 ?>
 
     <!-- Navbar -->
-    <?php require_once(ROOT_DIR."includes\\navbar.php"); ?>
+    <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
 
     <!-- Registration Form -->
     <div class="container mt-5">
@@ -41,7 +41,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         <?php } ?>    
-                        <form action="app/auth/Register.php" method="POST">
+                        <form action="app/auth/register.php" method="POST">
                             <div class="mb-3">
                                 <label for="fullName" class="form-label">Full Name</label>
                                 <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>

@@ -27,10 +27,12 @@
 
                     <?php } ?>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>cart.php">Cart</a>
-                    </li>
-
+                    <?php if(isset($_SESSION["username"]) && (isset($_SESSION["is_admin"])) && $_SESSION["is_admin"] == "0"){ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL;
+                    ?>cart.php">Cart</a>
+                </li>
+                <?php }?>
                      <!-- Dropdown for Signed-in User -->
                     <?php 
                     if(isset($_SESSION["username"])) { ?>

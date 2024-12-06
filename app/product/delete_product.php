@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         // redirect to views/admin/product/index.php
         $_SESSION["success"]="Product has successfully been deleted";
-        header("location: ".BASE_URL."views/admin/product/index.php");
+        header("location: ".BASE_URL."views/admin/products/index.php");
         exit;
         
     } catch (PDOException $e){

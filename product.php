@@ -2,11 +2,11 @@
 <?php 
     session_start();
     require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
-    require_once(ROOT_DIR."includes\header.php");
+    require_once(ROOT_DIR."includes/header.php");
 ?>
     
     <!-- Navbar -->
-    <?php require_once(ROOT_DIR."includes\\navbar.php"); ?>
+    <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
     
 <!DOCTYPE html>
 <html lang="en">

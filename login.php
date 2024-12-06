@@ -1,10 +1,10 @@
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
-    require_once(ROOT_DIR."includes\header.php");
+    require_once(ROOT_DIR."includes/header.php");
 ?>
 
     <!-- Navbar -->
-    <?php require_once("includes\\navbar.php"); ?>
+    <?php require_once("includes/navbar.php"); ?>
 
     <!-- Login Form -->
     <div class="container mt-5">
@@ -15,7 +15,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
                         <h4>Login to Your Account</h4>
                     </div>
                     <div class="card-body">
-                        <form action="app/auth/Login.php" method="POST">
+                        <form action="app/auth/login.php" method="POST">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>

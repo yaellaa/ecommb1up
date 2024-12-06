@@ -36,7 +36,7 @@ if(isset($_SESSION["success"])){
 
 ?>
     <!-- Navbar -->
-    <?php require_once(ROOT_DIR."includes\\navbar.php"); ?>
+    <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
 
     <!-- message response -->
         <?php if(isset($messageSucc)){ ?>

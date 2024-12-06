@@ -44,7 +44,7 @@ if(isset($_SESSION["success"])){
 
 
     <!-- Navbar -->
-    <?php require_once("includes\\navbar.php"); ?>
+    <?php require_once("includes/navbar.php"); ?>
 
     <!-- Shopping Cart -->
     <div class="container mt-5">

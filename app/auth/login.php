@@ -10,9 +10,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
         //connect to database
         $host = "localhost";
-        $database = "ecommb1";
-        $dbusername = "root";
-        $dbpassword = "";
+        $database = "ecommerce_melisan";
+        $dbusername = "melisan";
+        $dbpassword = "M37!san_2024";
 
         $dsn = "mysql: host=$host;dbname=$database;";
         try {

@@ -6,9 +6,9 @@
         $messageSucc = $_SESSION["success"];
         unset($_SESSION["success"]);
     }
-    require_once(ROOT_DIR."includes\header.php");
+    require_once(ROOT_DIR."includes/header.php");
 ?>
-    <?php require_once(ROOT_DIR."includes\\navbar.php"); ?>
+    <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
 
     <?php 
         if (!isset($_SESSION["username"])){
